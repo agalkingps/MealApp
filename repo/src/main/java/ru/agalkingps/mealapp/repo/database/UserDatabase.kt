@@ -48,34 +48,11 @@ abstract class UserDatabase: RoomDatabase() {
                 return instance
             }
         }
-        private fun getTestDatabase(context: Context): UserDatabase{
-            val tempInstance = INSTANCE
-
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-               val instance = Room.inMemoryDatabaseBuilder(
-                    context.applicationContext,
-                    UserDatabase::class.java
-                ).build()
-
-                INSTANCE = instance
-                return instance
-            }
-        }
-
         fun getRepository(appContext : Context) : UserRepositoryInterface {
             val userDao = UserDatabase.getDatabase(appContext).userDao()
             return UserRepository(userDao)
         }
-
-        fun getTestRepository(appContext : Context) : UserRepositoryInterface {
-            val userDao = UserDatabase.getTestDatabase(appContext).userDao()
-            return UserRepository(userDao)
-        }
-
-    }
+     }
 
 
 }

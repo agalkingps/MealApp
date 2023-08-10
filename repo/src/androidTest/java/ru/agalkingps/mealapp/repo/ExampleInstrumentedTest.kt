@@ -53,7 +53,7 @@ class ExampleInstrumentedTest {
     }
 
     private fun testUserRepo(appContext : Context) {
-        val userRepository: UserRepositoryInterface = UserDatabase.getTestRepository(appContext)
+        val userRepository: UserRepositoryInterface = UserDatabase.getRepository(appContext)
 
         GlobalScope.launch() {
             val user : User = User(0, "aaa", "gg", "aaag@email.ru")
