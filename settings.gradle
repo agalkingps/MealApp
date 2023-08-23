@@ -16,3 +16,4 @@ rootProject.name = "MealApp"
 include ':app'
 include ':repo'
 include ':data'
+include ':login-flow'

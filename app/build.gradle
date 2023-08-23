@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'ru.agalkingps.mealapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "ru.agalkingps.mealapp"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -50,15 +50,17 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     //Compose
     implementation platform("androidx.compose:compose-bom:$compose_bom_version")
+    implementation "androidx.activity:activity-ktx:$kotlin_activity_version"
     implementation "androidx.compose.material:material"
     //Room
     implementation "androidx.room:room-runtime:$room_version"
+    implementation project(':login-flow')
     kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
     // Serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
     //Hilt

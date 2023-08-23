@@ -62,13 +62,19 @@ class UserRepository(private val userDao: UserDao) : UserRepositoryInterface {
     }
     override fun justTest() : Unit {
         GlobalScope.launch() {
-            val user: User = User(0, "aaaaa", "gg", "aaaaag@email.ru")
-            val id : Long = addUser(user)
-            val user2: User? = getUserByEmail(user.email)
-            var name : String? = user2?.firstName
-            name +=" "
-            var i: Long = id
-            i++
+            deleteAllUsers()
+            val user: User = User(0, "andrey", "galkin", "andrey@email.ru")
+            try{
+                val id : Long = addUser(user)
+                var i: Long = id
+            }
+            catch(exp : Exception) {
+            } finally {
+                // optional finally block
+                val user2: User? = getUserByEmail(user.email)
+                var name: String? = user2?.firstName
+                name += " "
+            }
         }
         Thread.sleep(10_000)
     }

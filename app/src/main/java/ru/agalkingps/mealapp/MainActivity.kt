@@ -9,14 +9,18 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import ru.agalkingps.mealapp.data.UserRepositoryInterface
 import ru.agalkingps.mealapp.repo.database.UserDatabase
 import ru.agalkingps.mealapp.ui.theme.MealAppTheme
+import ru.agalkingps.mealapp.login_flow.loginGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val userRepository: UserRepositoryInterface = UserDatabase.getTestRepository(this.applicationContext)
+
+        val userRepository: UserRepositoryInterface = UserDatabase.getRepository(this.applicationContext)
         userRepository.justTest()
 
         setContent {
@@ -26,7 +30,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val controller = rememberNavController()
+
+                    NavHost(
+                        navController = controller,
+                        startDestination = "login"
+                    ) {
+                        loginGraph(controller)
+                    }
                 }
             }
         }
