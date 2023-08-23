@@ -6,18 +6,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 
 fun NavGraphBuilder.loginGraph(navController: NavController) {
-    navigation(startDestination = "loginScreen", route = "login") {
+    navigation(startDestination = "loginScreen", route = "loginFlow") {
         composable(route = "loginScreen") {
             LoginScreen(
-                onClickLoginButton = {
+                onLoginDone = {
+                    navController.navigate("profileScreen")
                 },
-                onClickSignInButton = {
+                onSignInStart = {
+                    navController.navigate("signInScreen")
                 }
             )
         }
         composable(route = "signInScreen") {
             SignInScreen(
-                onClickSignInButton = {
+                onSignInDone = {
+                    navController.navigate("profileScreen")
                 }
             )
         }

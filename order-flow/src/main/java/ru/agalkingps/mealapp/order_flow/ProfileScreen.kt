@@ -1,4 +1,4 @@
-package ru.agalkingps.mealapp.login_flow
+package ru.agalkingps.mealapp.order_flow
 
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.Arrangement
@@ -11,21 +11,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SignInScreen(
-    onSignInDone: () -> Unit
+fun ProfileScreen(
+    onOderStart: () -> Unit
 ) {
-    val onClickSignInButton : () -> Unit = {
-        onSignInDone()
+    val onClickOrderButton : () -> Unit = {
+        onOderStart()
     }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text("Sign In Screen")
-        Button(onClick = onClickSignInButton) {
-            Text(text = "Sign In")
+        Text("Profile Screen")
+        Button(onClick = onClickOrderButton) {
+            Text(text = "Order")
         }
     }
 }
-

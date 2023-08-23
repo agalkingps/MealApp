@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    namespace 'ru.agalkingps.mealapp.login_flow'
+    namespace 'ru.agalkingps.mealapp.order_flow'
     compileSdk 34
 
     defaultConfig {
         minSdk 24
         targetSdk 34
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+       testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 

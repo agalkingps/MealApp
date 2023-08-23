@@ -12,6 +12,8 @@ buildscript {
         coroutines_version = "1.6.4"
         kotlin_activity_version = "1.7.2"
         espresso_version = "3.5.1"
+        junit_version = "4.13.2"
+        android_junit_version = "1.1.5"
     }
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"

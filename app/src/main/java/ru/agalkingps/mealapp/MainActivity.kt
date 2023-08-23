@@ -15,6 +15,7 @@ import ru.agalkingps.mealapp.data.UserRepositoryInterface
 import ru.agalkingps.mealapp.repo.database.UserDatabase
 import ru.agalkingps.mealapp.ui.theme.MealAppTheme
 import ru.agalkingps.mealapp.login_flow.loginGraph
+import ru.agalkingps.mealapp.order_flow.orderGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +35,10 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = controller,
-                        startDestination = "login"
+                        startDestination = "LoginFlow"
                     ) {
                         loginGraph(controller)
+                        orderGraph(controller)
                     }
                 }
             }

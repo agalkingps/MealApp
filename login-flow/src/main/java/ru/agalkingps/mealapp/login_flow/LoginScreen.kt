@@ -12,20 +12,27 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun LoginScreen(
-    onClickLoginButton: () -> Unit,
-    onClickSignInButton: () -> Unit
+    onLoginDone: () -> Unit,
+    onSignInStart: () -> Unit
 ) {
+    val onClickLoginButton : () -> Unit = {
+        onLoginDone()
+    }
+    val onClickSignInButton : () -> Unit = {
+        onSignInStart()
+    }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text("@string/Login")
+        Text("Login Screen")
+
         Button(onClick = onClickLoginButton) {
-            Text(text = "@string/login")
+            Text(text = "Login")
         }
         Button(onClick = onClickSignInButton) {
-            Text(text = "@string/sign_in")
+            Text(text = "Sign In")
         }
     }
 }
